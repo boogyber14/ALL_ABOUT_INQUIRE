@@ -1,5 +1,6 @@
 use inquire::{Confirm, Select, Text, validator::Validation};
 use std::error::Error;
+use std::fs;
 
 fn main() -> Result<(), Box<dyn Error>> {
     // Prompt for the user's name
@@ -30,6 +31,11 @@ fn main() -> Result<(), Box<dyn Error>> {
         ]).prompt()?.to_string();
 
         println!("Nice choice! {} is a great language.", language);
+
+        // Delete a directory
+        let dir_to_delete = "/path/to/your/directory"; // Replace this with the directory you want to delete
+        fs::remove_dir(dir_to_delete)?;
+        println!("Directory deleted successfully.");
     } else {
         println!("Sorry, {}! You must be an adult to proceed.", name);
     }
