@@ -44,6 +44,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         let language = get_favorite_language()?;
         println!("Nice choice! {} is a great language.", language);
 
+        // Replace this with the directory you want to delete
         let dir_to_delete = "/path/to/your/directory";
         delete_directory(dir_to_delete)?;
     } else {
